@@ -1,0 +1,28 @@
+<h1 class="heading">{{name}}</h1>
+<div class="flex">
+    <div>
+        <p class="text">
+            <span class="accent">
+                Capital:
+            </span>
+            {{capital}}
+        </p>
+        <p class="text">
+            <span class="accent">
+                Population:
+            </span>
+            {{population}}
+        </p>
+        <p class="text">
+            <span class="accent">
+                Languages:
+            </span>
+        <ul class="list">
+            {{#each languages}}
+            <li class="element">{{this.name}}</li>
+            {{/each}}
+        </ul>
+        </p>
+    </div>
+    <img class="img" src="{{flag}}" alt="flag">
+</div>
