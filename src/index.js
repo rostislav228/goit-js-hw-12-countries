@@ -23,7 +23,7 @@ function countrySearch(e) {
     fetchCountries(searchQuery)
         .then(data => {
             if (data.length > 10) {
-                errorMessage('To many matches found. Please enter a more specific query!')
+                errorMessage('To many matches found. Please enter a more specific query!', 1000)
             }
             else if (data.length > 1 && data.length <= 10) {
                 foundMarkup(list({ ...data }))
@@ -32,16 +32,17 @@ function countrySearch(e) {
                 foundMarkup(country(...data))
             }
         })
+        .catch(data => {errorMessage('Enter the correct name', 3000)})
 }
 
 function foundMarkup(array) {
     rest.box.insertAdjacentHTML('beforeend', array)
 }
 
-function errorMessage (message) {
+function errorMessage (message, ms) {
     error({
         text: `${message}`,
-        delay: 1000,
+        delay: ms,
         closerHover: true,
     });
 }
