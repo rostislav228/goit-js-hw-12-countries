@@ -4,6 +4,7 @@ export default function fetchCountries(name) {
             if (r.ok) {
                 return r.json()
             }
+
         })
         .then(data => data)
 }
